@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.2-jdk-slim
-COPY --from=build /target/backend-food delivery-0.0.1-SNAPSHOT.jar backend-food delivery.jar
+COPY --from=build /target/zosh-food-0.0.1-SNAPSHOT.jar zosh-food.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","backend-food delivery.jar"]
+ENTRYPOINT ["java","-jar","zosh-food.jar"]
