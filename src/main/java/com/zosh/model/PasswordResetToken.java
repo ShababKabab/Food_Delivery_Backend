@@ -10,16 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+//import lombok.RequiredArgsConstructor;
 
 @Entity
 //@Data
 //@NoArgsConstructor
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 //@AllArgsConstructor
 public class PasswordResetToken {
 	
@@ -27,25 +23,25 @@ public class PasswordResetToken {
 	@Id
 	private Integer id;
 	
-	private @NonNull String token;
+	private String token;
 	
 	@ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-	private @NonNull User user;
+	private User user;
 	
-	private @NonNull  Date expiryDate;
+	private Date expiryDate;
 	
 	public boolean isExpired() {
         return expiryDate.before(new Date());
     }
 
-	public PasswordResetToken(@NonNull String token, @NonNull User user, @NonNull Date expiryDate) {
+	public PasswordResetToken( String token, User user, Date expiryDate) {
 		super();
 		this.token = token;
 		this.user = user;
 		this.expiryDate = expiryDate;
 	}
 
-	public PasswordResetToken(Integer id, @NonNull String token, @NonNull User user, @NonNull Date expiryDate) {
+	public PasswordResetToken(Integer id, String token, User user, Date expiryDate) {
 		super();
 		this.id = id;
 		this.token = token;
