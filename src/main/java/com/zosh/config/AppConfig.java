@@ -49,7 +49,7 @@ public class AppConfig {
                 CorsConfiguration cfg = new CorsConfiguration();
                 cfg.setAllowedOrigins(Arrays.asList(
                     "http://localhost:3000",
-                    "https://shabab-food-delivery.vercel.app/",
+                    "https://shabab-food-delivery.vercel.app",
                     "https://zosh-food.vercel.app",
                     "http://localhost:4200"
                 ));
